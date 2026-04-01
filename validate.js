@@ -23,8 +23,13 @@ function validateForm() {
 	  return false;
 	}
   
-	let total = priceCalculate();
-	alert("Total price for this booking is " + total + " USD");
-  
-	return false;
-  }
+	function validateForm() {
+		// ... validation code เดิม ...
+	  
+		let total = priceCalculate();
+	  
+		alert("Total price for this booking is " + total.toFixed(2) + " THB");
+	  
+		return false;
+	  }
+	}
