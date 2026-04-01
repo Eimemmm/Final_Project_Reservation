@@ -24,7 +24,8 @@ function validateForm() {
 	}
   
 	let total = priceCalculate();
-	alert("Total price for this booking is " + total + " USD");
+
+	alert("Total price for this booking is " + total.toFixed(2) + " THB");
   
 	return false;
   }

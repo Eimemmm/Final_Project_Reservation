@@ -1,9 +1,14 @@
 function priceCalculate() {
-  let ticknum = (document.getElementById("ticknum").value).trim();
+  let tickets = parseInt(document.getElementById("ticknum").value);
+
   let selectObj = document.getElementById("event");
-  let eventId = parseInt(selectObj.options[selectObj.selectedIndex].value);
-  
-  return 0;
+  let selectedOption = selectObj.options[selectObj.selectedIndex];
+
+  let pricePerTicket = parseFloat(selectedOption.getAttribute("data-price"));
+
+  let total = tickets * pricePerTicket;
+
+  total = Math.round(total * 100) / 100; // ปัดเศษ 2 ตำแหน่ง
+
+  return total;
 }
-
-
