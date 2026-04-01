@@ -22,6 +22,7 @@ function validateForm() {
 	  document.getElementById("ticknum").focus();
 	  return false;
 	}
+<<<<<<< HEAD
   
 	let total = priceCalculate();
 
@@ -29,3 +30,12 @@ function validateForm() {
   
 	return false;
   }
+=======
+
+		let total = priceCalculate();
+	  
+		alert("Total price for this booking is " + total.toFixed(2) + " THB");
+	  
+		return true;
+	  }
+>>>>>>> Popups
