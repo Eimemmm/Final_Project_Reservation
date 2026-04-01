@@ -1,35 +1,30 @@
-function checkNID() {
-  let nid = (document.getElementById("nid").value).trim();
-  if (nid.length != 13) {
-    return false;
-  } else {
-	return true;
-  }
-}
+function validateForm() {
 
-function checkTicketNo() {
-  let num = (document.getElementById("ticknum").value).trim();
-  if (isNaN(num)) {
-    return false;
-  } else {
-	return true;
-  }
-}
-
-function validateForm(){
-	if(!checkNID()){
-	  alert("Invalid value for National ID!");
+	let nid = document.getElementById("nid").value.trim();
+	let fname = document.getElementById("fname").value.trim();
+	let lname = document.getElementById("lname").value.trim();
+	let ticknum = document.getElementById("ticknum").value.trim();
+  
+	// ✅ check empty fields
+	if (nid === "" || fname === "" || lname === "" || ticknum === "") {
+	  alert("Please fill in all required fields");
+	  return false;
+	}
+  
+	if (!checkNID()) {
+	  alert("National ID must be 13 digits");
 	  document.getElementById("nid").focus();
 	  return false;
-	}else{
-		if(!checkTicketNo()){
-		  alert("Invalid value for No.of tickets!!");
-		  document.getElementById("ticknum").focus();
-		  return false;
-		}else{
-			total = priceCalculate();
-			alert("Total price for this booking is "+total+" USD");
-			return false;
-		}
 	}
-}
+  
+	if (!checkTicketNo()) {
+	  alert("Number of tickets must be between 1 and 5");
+	  document.getElementById("ticknum").focus();
+	  return false;
+	}
+  
+	let total = priceCalculate();
+	alert("Total price for this booking is " + total + " USD");
+  
+	return false;
+  }
